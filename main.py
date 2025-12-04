@@ -11,7 +11,7 @@ from fastapi import FastAPI
 import uvicorn
 
 # ---------- CONFIG ----------
-BOT_TOKEN = os.getenv("7951171135:AAGWAxNcTZ9tDjkNefFEFDOuMJGpa8y24h0 ")  # set this in Render/Secrets, NOT in code
+BOT_TOKEN = os.getenv("BOT_TOKEN")  # set this in Render/Secrets, NOT in code
 POLL_INTERVAL = int(os.getenv("POLL_INTERVAL", "25"))
 CHAIN = os.getenv("CHAIN", "solana")
 DEXSCREENER_URL = f"https://api.dexscreener.com/latest/dex/pairs/{CHAIN}"
@@ -19,8 +19,8 @@ SEEN_FILE = Path("seen.json")
 ADMIN_CHAT = os.getenv("ADMIN_CHAT")
 # ----------------------------
 
-if not 7951171135:AAGWAxNcTZ9tDjkNefFEFDOuMJGpa8y24h0:
-    raise RuntimeError("7951171135:AAGWAxNcTZ9tDjkNefFEFDOuMJGpa8y24h0")
+if not bot_token:
+    raise RuntimeError("BOT_TOKEN")
 
 if not SEEN_FILE.exists():
     SEEN_FILE.write_text("{}")
